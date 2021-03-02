@@ -1,26 +1,45 @@
-
+/**
+ * @class Table
+ * @description
+ * Ein programm zum erstellen von Tabellen in der Konsole
+ * @
+ */
 class Table
 {
-    constructor({ title, width, columns, rows} = {})
+    /**
+     * @constructor
+     */
+    // Advanced:
+    // constructor({ title, width, columns, rows} = {})
+    // {
+    //     this.tableTitle = title || 'Default Table';
+    //     this.tableWidth = width || process.stdout.columns;
+    //     this.tableColumns = columns || [];
+    //     this.tableRows = rows || [];
+    // };
+    constructor()
     {
-        this.tableTitle = title || 'Default Table';
-        this.tableWidth = width || process.stdout.columns;
-        this.tableColumns = columns || [];
-        this.tableRows = rows || [];
+        this.tableTitle = 'Default Table';
+        this.tableWidth = process.stdout.columns;
+        this.tableColumns = [];
+        this.tableRows = [];
     };
 
+    /**
+     * Getter/Setter
+     */
     getTitle = () => this.tableTitle;
     setTitle = (title) => this.tableTitle = title;
-    
     getWidth = () => this.tableWidth;
     setWidth = (width) => this.tableWidth = width;
-    
     getColumns = () => this.tableColumns;
     setColumns = (columns) => this.tableColumns = columns;
-
     getRows = () => this.tableRows;
     setRows = (rows) => this.tableRows = rows;
 
+    /**
+     * 
+     */
     createTitle = () =>
     {
         const padding = Math.round((this.tableWidth - this.tableTitle.length) / 2);
@@ -28,6 +47,14 @@ class Table
         return `\n${ " ".repeat(padding) }${ this.tableTitle }${ " ".repeat(padding) }`;
     }
 
+    /**
+     * @method createColumn();
+     * @description
+     * Erstellt eine Spalte.
+     * @param { string } text 
+     * @param { number } width
+     * @returns { string }
+     */
     createColumn = (text, width) =>
     {
         const columnWidth = width - text.toString().length || 20;
@@ -35,6 +62,13 @@ class Table
         return " " + text.toString() + " ".repeat(columnWidth - 3) + "|";
     }
 
+    /**
+     * @method createRow();
+     * @description
+     * Erstellt eine Zeile.
+     * @param { object } rowContent 
+     * @returns { string }
+     */
     createRow = (rowContent) =>
     {
         let tempString = "|";
@@ -65,6 +99,12 @@ class Table
         return tempString;
     }
 
+    /**
+     * @method createHeader();
+     * @description
+     * Erstellt den header.
+     * @returns { string }
+     */
     createHeader = () =>
     {
         let tempString = "|";
@@ -87,6 +127,11 @@ class Table
         return tempString;
     }
 
+    /**
+     * @method createDivider();
+     * Erstellt den divider.
+     * @returns { string }
+     */
     createDivider = () =>
     {
         let tempString = "|";
@@ -109,6 +154,11 @@ class Table
         return tempString;
     }
 
+    /**
+     * @method ShowTable();
+     * @description
+     * Fügt alle methoden zusammen und gibt sie im terminal aus.
+     */
     showTable = () =>
     {
         console.log(this.createTitle());
@@ -121,4 +171,8 @@ class Table
     }
 }
 
+/**
+ * @exports
+ * @description exportiert die klasse Table für die externe benutzung.
+ */
 module.exports = Table;
