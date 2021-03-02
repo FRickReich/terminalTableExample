@@ -72,12 +72,12 @@ you can set the table name with
 table.setTitle("Unsere Tabelle");
 ```
 
-you van set the width of the table with
+you can set the width of the table*
 ```js
 table.setWidth(70);
 ```
 
-* if you do not define the width, the table will be fluid and take the whole width of the terminal.
+(*) if you do not define the width, the table will be fluid and take the whole width of the terminal.
 
 at last, use the method ````.showTable();``` to show the finished table in the terminal.
 ```js

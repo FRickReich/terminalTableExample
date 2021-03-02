@@ -1,7 +1,5 @@
 const Table = require('./table');
 
-const table = new Table();
-
 const columns =
 [
     {
@@ -47,11 +45,14 @@ const rows =
     }
 ];
 
+const table = new Table();
 table.setTitle("Unsere Tabelle");
 table.setColumns(columns);
 table.setRows(rows);
 table.setWidth(70);
 
-// console.log(table);
+// const table = new Table({ title: "TestTabelle", width: 100, columns: columns, rows: rows });
+
+console.log(table);
 
 table.showTable();

@@ -1,12 +1,12 @@
 
 class Table
 {
-    constructor()
+    constructor({ title, width, columns, rows} = {})
     {
-        this.tableTitle = 'Default Table';
-        this.tableWidth = process.stdout.columns;
-        this.tableColumns = [];
-        this.tableRows = [];
+        this.tableTitle = title || 'Default Table';
+        this.tableWidth = width || process.stdout.columns;
+        this.tableColumns = columns || [];
+        this.tableRows = rows || [];
     };
 
     getTitle = () => this.tableTitle;
